@@ -3,7 +3,10 @@ const app = express();
 const bodyParser = require('body-parser')
 const parserServer = require('parse-server').ParseServer;
 const parseDashboard = require('parse-dashboard')
+
 const userAuth = require('./routes/user')
+const productApi = require('./routes/product')
+
 const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config();
@@ -48,3 +51,4 @@ app.use("/parse", api.app);
 app.use("/dashboard", dashboardConfig);
 
 app.use('/api/user', userAuth);
+app.use('/api/product', productApi)
